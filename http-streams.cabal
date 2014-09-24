@@ -26,6 +26,11 @@ bug-reports:         https://github.com/afcowie/http-streams/issues
 
 build-type:          Custom
 
+flag network-uri
+  description: Get Network.URI from the network-uri package
+  default: True
+
+
 library
   default-language:  Haskell2010
 
@@ -39,10 +44,11 @@ library
                      case-insensitive,
                      io-streams >= 1.1 && <1.3,
                      HsOpenSSL >= 0.10.3.5,
-                     openssl-streams >= 1.1 && <1.2,
+                     openssl-streams >= 1.1 && <1.3,
                      mtl,
                      transformers,
-                     network,
+                     network >= 2.6,
+                     network-uri >= 2.6 && < 2.7,
                      text,
                      unordered-containers,
                      aeson
@@ -91,6 +97,7 @@ test-suite           check
                      mtl,
                      transformers,
                      network,
+                     network-uri,
                      openssl-streams,
                      snap-core       >= 0.9    && < 1.0,
                      snap-server     >= 0.9    && < 1.0,
